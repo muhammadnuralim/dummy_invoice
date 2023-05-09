@@ -24,12 +24,12 @@
     <tbody>
       {%for d in data%}
       <tr>
-        <th scope="row"><a href="/invoice/{{d.invoice_id}}" class="btn btn-primary">{{d.invoice_id}}</a></th>
-        <td>{{d.invoice_date}}</td>
-        <td>{{d.country_of_origin}}</td>
-        <td>{{d.seller}}</td>
-        <td>{{d.distribution_area}}</td>
-        <td>{{d.total_price}}</td>
+        <th scope="row" class="invoice_id"><a href="/invoice/{{d.invoice_id}}" class="btn btn-primary">{{d.invoice_id}}</a></th>
+        <td class="invoice_date">{{d.invoice_date}}</td>
+        <td class="country_of_origin">{{d.country_of_origin}}</td>
+        <td class="seller">{{d.seller}}</td>
+        <td class="distribution_area">{{d.distribution_area}}</td>
+        <td class="total_price">{{d.total_price}}</td>
       </tr>
       {%endfor%}
     </tbody>

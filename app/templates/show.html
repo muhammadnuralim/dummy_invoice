@@ -26,13 +26,13 @@
         <tbody>
             {%for item in data.products%}
             <tr>
-              <td>{{item.brand}}</td>
-              <td>{{item.type}}</td>
-              <td>{{item.price}}</td>
-              <td>{{item.count}}</td>
+              <td class="brand">{{item.brand}}</td>
+              <td class="type">{{item.type}}</td>
+              <td class="price">{{item.price}}</td>
+              <td class="quantity">{{item.count}}</td>
             </tr>
             {%endfor%}
         </tbody>
       </table>
     </div>
-    {%endblock%}
+    {%endblock%}`
