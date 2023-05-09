@@ -1,0 +1,50 @@
+{%extends "base.html" %}
+
+{%block title%}
+    Home page
+{%endblock%}
+
+{%block content %}
+
+
+
+<div class="container mt-5">
+  <h1 class="text-center">Data Invoice</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID Invoice</th>
+        <th scope="col">Tanggal</th>
+        <th scope="col">Negara Asal</th>
+        <th scope="col">Penjual</th>
+        <th scope="col">Area Distribusi</th>
+        <th scope="col">Total Harga</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for d in data%}
+      <tr>
+        <th scope="row"><a href="/invoice/{{d.invoice_id}}" class="btn btn-primary">{{d.invoice_id}}</a></th>
+        <td>{{d.invoice_date}}</td>
+        <td>{{d.country_of_origin}}</td>
+        <td>{{d.seller}}</td>
+        <td>{{d.distribution_area}}</td>
+        <td>{{d.total_price}}</td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      {% if data[0].invoice_id > 0 %}
+      <li class="page-item"><a class="page-link" href="/prevpage/{{data[0].invoice_id}}">Previous</a></li>
+      {% endif %}
+      {% if data[-1].invoice_id < 399 %}
+      <li class="page-item"><a class="page-link" href="/nextpage/{{data[-1].invoice_id}}">Next</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</div>
+
+
+{%endblock%}

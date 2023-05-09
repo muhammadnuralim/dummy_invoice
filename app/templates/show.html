@@ -1,0 +1,38 @@
+{%extends "base.html" %}
+
+{%block title%}
+   Detail Page
+{%endblock%}
+
+{%block content %}
+<div class="container mt-5">
+        <a href="/" class="btn btn-warning">Back to home</a>
+        <p>ID Invoice: {{data.invoice_id}}</p>
+        <p>Tanggal Invoice: {{data.invoice_date}}</p>
+        <p>Negara Asal: {{data.country_of_origin}}</p>
+        <p>Penjual: {{data.seller}}</p>
+        <p>Area Distribusi: {{data.distribution_area}}</p>
+        <p>Total Harga: {{data.total_price}}</p>
+        <h3 class="text-center">Barang</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Merek</th>
+            <th scope="col">Tipe</th>
+            <th scope="col">Harga Satuan</th>
+            <th scope="col">Kuantitas</th>
+          </tr>
+        </thead>
+        <tbody>
+            {%for item in data.products%}
+            <tr>
+              <td>{{item.brand}}</td>
+              <td>{{item.type}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.count}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+      </table>
+    </div>
+    {%endblock%}
